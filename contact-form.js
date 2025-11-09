@@ -205,7 +205,7 @@ class ContactForm extends HTMLElement {
         background: ${backgroundColor};
         padding: 2rem;
         border-radius: ${borderRadius};
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto;
         /* Updated: Softer box shadow values */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);

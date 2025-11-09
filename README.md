@@ -395,7 +395,12 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.13 (Latest)
+### v1.0.14 (Latest)
+- Increased form widths for better readability on larger screens
+- Contact form: Updated `max-width` from 500px to 600px
+- Web inquiry form: Updated `:host` `max-width` from 532px to 632px (both forms now 600px visual width)
+
+### v1.0.13
 - Added `input-text-color` and `dark-input-text-color` attributes to contact form for independent control of input field text colors
 - Added `input-border-color` and `dark-input-border-color` attributes to contact form for independent control of input field border colors
 - Fixed attribute inheritance issues where input fields were incorrectly inheriting from general text and border color attributes
