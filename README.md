@@ -358,9 +358,29 @@ Works with all modern browsers that support:
 
 Compatible with: Chrome, Firefox, Safari, Edge
 
-## License
+## Changelog
 
-MIT License - see LICENSE file for details
+### v1.0.6 (Latest)
+- Fixed contact form name field spacing on mobile to be consistent with other form fields
+
+### v1.0.5
+- Fixed contact form total width to be 500px (including padding) using `box-sizing: border-box`
+- Improved consistency between contact form and web inquiry form sizing
+
+### v1.0.4
+- Standardized form widths to 564px for better consistency
+- Added responsive name field breakpoint at 480px for improved mobile experience
+
+### v1.0.2
+- Added assets folder to npm package for proper image display in documentation
+
+### v1.0.1
+- Initial release with web inquiry form and minimalist contact form
+- Multi-step form with validation
+- Dark mode support
+- Full customization via attributes
+
+## [License](LICENSE)
 
 ## Author
 
