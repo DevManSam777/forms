@@ -292,7 +292,7 @@ class WebInquiryForm extends HTMLElement {
         font-family: ${fontFamily};
         line-height: 1.6;
         color: ${textColor};
-        max-width: 632px;
+        max-width: 600px;
         margin: 0 auto;
         padding: 16px;
         font-size: ${fontSize};
