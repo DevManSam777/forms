@@ -360,11 +360,7 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.7 (Latest)
-- Removed 768px breakpoint from web-inquiry-form for consistent responsive behavior with contact form
-- Both forms now only resize at 480px breakpoint
-
-### v1.0.6
+### v1.0.6 (Latest)
 - Fixed contact form name field spacing on mobile to be consistent with other form fields
 
 ### v1.0.5
