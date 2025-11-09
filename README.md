@@ -360,7 +360,13 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.6 (Latest)
+### v1.0.8 (Latest)
+- Restored 768px breakpoint for web-inquiry-form to prevent text overflow on tablets
+
+### v1.0.7
+- Removed 768px breakpoint (reverted in v1.0.8 due to text overflow)
+
+### v1.0.6
 - Fixed contact form name field spacing on mobile to be consistent with other form fields
 
 ### v1.0.5
