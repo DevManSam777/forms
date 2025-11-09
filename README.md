@@ -385,7 +385,10 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.11 (Latest)
+### v1.0.12 (Latest)
+- Added letter-spacing to contact form for improved readability (1px on headings, 0.75px on content)
+
+### v1.0.11
 - Improved mobile responsive design for contact form with optimized font sizes, padding, and spacing on screens below 480px
 
 ### v1.0.10
