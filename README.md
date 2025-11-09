@@ -360,7 +360,10 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.8 (Latest)
+### v1.0.9 (Latest)
+- Added `button-text-color` and `dark-button-text-color` attributes to contact form for customizable button text
+
+### v1.0.8
 - Restored 768px breakpoint for web-inquiry-form to prevent text overflow on tablets
 
 ### v1.0.7
