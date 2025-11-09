@@ -385,7 +385,10 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.10 (Latest)
+### v1.0.11 (Latest)
+- Improved mobile responsive design for contact form with optimized font sizes, padding, and spacing on screens below 480px
+
+### v1.0.10
 - Updated README with complete documentation for contact form attributes including button text color customization
 
 ### v1.0.9
