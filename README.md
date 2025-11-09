@@ -282,12 +282,30 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 
 | Attribute | Description | Default |
 |-----------|-------------|---------|
-| `primary-color` | Main accent color and button background | `#4F7BFF` |
-| `background-color` | Form background color | `rgba(255, 255, 255, 0.1)` |
-| `text-color` | Text color | `#333333` |
-| `border-color` | Border color | `#ddd` |
-| `border-radius` | Corner roundness | `8px` |
+| `primary-color` | Main accent color and button background | `#3b82f6` |
+| `background-color` | Form background color | `#ffffff` |
+| `text-color` | Text color | `#374151` |
+| `border-color` | Border color | `#d1d5db` |
+| `border-radius` | Corner roundness | `6px` |
 | `font-family` | Custom font family | System fonts |
+| `font-size` | Base font size | `14px` |
+| `google-font` | Google Font name to load | None |
+| `heading` | Form heading text | None |
+| `input-background-color` | Input field background | Same as background-color |
+| `button-text-color` | Button text color | `#ffffff` |
+| `success-message` | Custom success message | "Message sent successfully!" |
+| `error-message` | Custom error message | "Failed to send message. Please try again." |
+
+#### Dark Mode Styling
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `dark-primary-color` | Primary color for dark mode | `#60a5fa` |
+| `dark-background-color` | Background for dark mode | `#1f2937` |
+| `dark-text-color` | Text color for dark mode | `#f9fafb` |
+| `dark-border-color` | Border color for dark mode | `#4b5563` |
+| `dark-input-background-color` | Input background for dark mode | Same as dark-background-color |
+| `dark-button-text-color` | Button text color for dark mode | `#ffffff` |
 
 ### Example: Custom Theme
 
@@ -295,11 +313,18 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 <contact-form
   endpoint="https://your-api.com/contact"
   primary-color="#8b5cf6"
-  background-color="rgba(255, 255, 255, 0.05)"
-  text-color="#f4f4f5"
-  border-color="#3f3f46"
+  background-color="#ffffff"
+  text-color="#1f2937"
+  border-color="#d1d5db"
+  button-text-color="#ffffff"
   border-radius="12px"
-  font-family="Inter, sans-serif"
+  google-font="Inter"
+  font-size="14px"
+  heading="Get In Touch"
+  dark-primary-color="#a78bfa"
+  dark-background-color="#1f2937"
+  dark-text-color="#f9fafb"
+  dark-button-text-color="#1f2937"
 ></contact-form>
 ```
 
@@ -360,7 +385,10 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.9 (Latest)
+### v1.0.10 (Latest)
+- Updated README with complete documentation for contact form attributes including button text color customization
+
+### v1.0.9
 - Added `button-text-color` and `dark-button-text-color` attributes to contact form for customizable button text
 
 ### v1.0.8
