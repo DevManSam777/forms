@@ -284,14 +284,16 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 |-----------|-------------|---------|
 | `primary-color` | Main accent color and button background | `#3b82f6` |
 | `background-color` | Form background color | `#ffffff` |
-| `text-color` | Text color | `#374151` |
-| `border-color` | Border color | `#d1d5db` |
+| `text-color` | Text color for labels and headings | `#374151` |
+| `border-color` | General border color | `#d1d5db` |
 | `border-radius` | Corner roundness | `6px` |
 | `font-family` | Custom font family | System fonts |
 | `font-size` | Base font size | `14px` |
 | `google-font` | Google Font name to load | None |
 | `heading` | Form heading text | None |
 | `input-background-color` | Input field background | Same as background-color |
+| `input-text-color` | Input field text color | Same as text-color |
+| `input-border-color` | Input field border color | Same as border-color |
 | `button-text-color` | Button text color | `#ffffff` |
 | `success-message` | Custom success message | "Message sent successfully!" |
 | `error-message` | Custom error message | "Failed to send message. Please try again." |
@@ -303,8 +305,10 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 | `dark-primary-color` | Primary color for dark mode | `#60a5fa` |
 | `dark-background-color` | Background for dark mode | `#1f2937` |
 | `dark-text-color` | Text color for dark mode | `#f9fafb` |
-| `dark-border-color` | Border color for dark mode | `#4b5563` |
+| `dark-border-color` | General border color for dark mode | `#4b5563` |
 | `dark-input-background-color` | Input background for dark mode | Same as dark-background-color |
+| `dark-input-text-color` | Input text color for dark mode | Same as dark-text-color |
+| `dark-input-border-color` | Input border color for dark mode | Same as dark-border-color |
 | `dark-button-text-color` | Button text color for dark mode | `#ffffff` |
 
 ### Example: Custom Theme
@@ -316,6 +320,9 @@ A simple, clean contact form for basic inquiries with name, email, and message f
   background-color="#ffffff"
   text-color="#1f2937"
   border-color="#d1d5db"
+  input-background-color="#f9fafb"
+  input-text-color="#111827"
+  input-border-color="#9ca3af"
   button-text-color="#ffffff"
   border-radius="12px"
   google-font="Inter"
@@ -324,6 +331,9 @@ A simple, clean contact form for basic inquiries with name, email, and message f
   dark-primary-color="#a78bfa"
   dark-background-color="#1f2937"
   dark-text-color="#f9fafb"
+  dark-input-background-color="#111827"
+  dark-input-text-color="#e5e7eb"
+  dark-input-border-color="#6b7280"
   dark-button-text-color="#1f2937"
 ></contact-form>
 ```
@@ -385,7 +395,13 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.12 (Latest)
+### v1.0.13 (Latest)
+- Added `input-text-color` and `dark-input-text-color` attributes to contact form for independent control of input field text colors
+- Added `input-border-color` and `dark-input-border-color` attributes to contact form for independent control of input field border colors
+- Fixed attribute inheritance issues where input fields were incorrectly inheriting from general text and border color attributes
+- All contact form color attributes now work independently with proper fallback behavior
+
+### v1.0.12
 - Added letter-spacing to contact form for improved readability (1px on headings, 0.75px on content)
 
 ### v1.0.11

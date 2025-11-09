@@ -1,6 +1,6 @@
 {
   "name": "@devmansam/forms",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Professional, customizable web form components for contact and inquiry forms",
   "main": "index.js",
   "type": "module",
