@@ -1,0 +1,40 @@
+{
+  "name": "@devmansam/forms",
+  "version": "1.0.0",
+  "description": "Professional, customizable web form components for contact and inquiry forms",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./web-inquiry-form": "./web-inquiry-form.js",
+    "./contact-form": "./contact-form.js"
+  },
+  "files": [
+    "index.js",
+    "web-inquiry-form.js",
+    "contact-form.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "form",
+    "contact-form",
+    "inquiry-form",
+    "web-component",
+    "custom-element",
+    "shadow-dom",
+    "customizable",
+    "responsive",
+    "devleads"
+  ],
+  "author": "DevManSam <devmansam@protonmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevManSam777/forms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DevManSam777/forms/issues"
+  },
+  "homepage": "https://github.com/DevManSam777/forms#readme"
+}
