@@ -324,6 +324,20 @@ class ContactForm extends HTMLElement {
         background-color: rgba(22, 163, 74, 0.05);
       }
 
+      [role="alert"] {
+        color: #dc2626;
+        font-size: 12px;
+        margin-top: 4px;
+        font-weight: 500;
+        font-family: ${fontFamily};
+        letter-spacing: 0.75px;
+        display: none;
+      }
+
+      [role="alert"]:not(:empty) {
+        display: block;
+      }
+
       .error-message {
         color: #dc2626;
         font-size: 12px;
@@ -374,6 +388,10 @@ class ContactForm extends HTMLElement {
         background: rgba(239, 68, 68, 0.1);
         color: #f87171;
         border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      .dark-mode [role="alert"] {
+        color: #f87171;
       }
 
       /* Responsive */
@@ -427,35 +445,79 @@ class ContactForm extends HTMLElement {
     }
 
     const heading = this.getAttribute('heading');
-    const headingHtml = heading ? `<h2 class="form-heading">${heading}</h2>` : '';
-    
+    const headingHtml = heading ? `<h2 class="form-heading" id="form-heading">${heading}</h2>` : '';
+
     this.shadowRoot.innerHTML = `
       ${this.shadowRoot.querySelector('style').outerHTML}
-      <form class="contact-form">
+      <form class="contact-form" role="form" aria-label="Contact form${heading ? '' : ''}" ${heading ? 'aria-labelledby="form-heading"' : ''}>
         ${headingHtml}
-        <div id="message-container"></div>
+        <div id="message-container" role="status" aria-live="polite" aria-atomic="true"></div>
         <div class="name-row">
           <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
+            <label for="firstName" id="firstName-label">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              required
+              aria-required="true"
+              aria-invalid="false"
+              aria-labelledby="firstName-label"
+              aria-describedby="firstName-error">
+            <div id="firstName-error" role="alert" aria-live="assertive"></div>
           </div>
           <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required>
+            <label for="lastName" id="lastName-label">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              required
+              aria-required="true"
+              aria-invalid="false"
+              aria-labelledby="lastName-label"
+              aria-describedby="lastName-error">
+            <div id="lastName-error" role="alert" aria-live="assertive"></div>
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <label for="email" id="email-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            aria-required="true"
+            aria-invalid="false"
+            aria-labelledby="email-label"
+            aria-describedby="email-error">
+          <div id="email-error" role="alert" aria-live="assertive"></div>
         </div>
         <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone"> </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <label for="phone" id="phone-label">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            aria-required="false"
+            aria-invalid="false"
+            aria-labelledby="phone-label"
+            aria-describedby="phone-error">
+          <div id="phone-error" role="alert" aria-live="assertive"></div>
         </div>
-        <button type="submit" class="submit-btn">Send Message</button>
+        <div class="form-group">
+          <label for="message" id="message-label">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            aria-required="true"
+            aria-invalid="false"
+            aria-labelledby="message-label"
+            aria-describedby="message-error"></textarea>
+          <div id="message-error" role="alert" aria-live="assertive"></div>
+        </div>
+        <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
       </form>
     `;
     this.updateStyles();
@@ -559,20 +621,31 @@ class ContactForm extends HTMLElement {
   showError(input, message) {
     this.removeError(input);
 
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    input.parentElement.appendChild(errorDiv);
+    // Update ARIA attributes
+    input.setAttribute('aria-invalid', 'true');
+
+    // Use the pre-existing error div with role="alert"
+    const errorId = `${input.id}-error`;
+    const errorDiv = this.shadowRoot.getElementById(errorId);
+    if (errorDiv) {
+      errorDiv.textContent = message;
+    }
 
     input.classList.add('invalid');
     input.classList.remove('valid');
   }
 
   removeError(input) {
-    const errorDiv = input.parentElement.querySelector('.error-message');
+    // Update ARIA attributes
+    input.setAttribute('aria-invalid', 'false');
+
+    // Clear the error div
+    const errorId = `${input.id}-error`;
+    const errorDiv = this.shadowRoot.getElementById(errorId);
     if (errorDiv) {
-      errorDiv.remove();
+      errorDiv.textContent = '';
     }
+
     input.classList.remove('invalid');
   }
 
@@ -641,7 +714,6 @@ class ContactForm extends HTMLElement {
       businessEmail: '',
       businessServices: '',
       phoneExt: '',
-      textNumber: '',
       preferredContact: 'email',
       serviceDesired: 'Web Development',
       hasWebsite: 'no',
@@ -679,6 +751,7 @@ class ContactForm extends HTMLElement {
         const inputs = form.querySelectorAll('input, textarea');
         inputs.forEach(input => {
           input.classList.remove('valid', 'invalid');
+          input.setAttribute('aria-invalid', 'false');
           this.removeError(input); // Also remove any error messages
         });
       } else {

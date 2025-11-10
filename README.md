@@ -13,16 +13,17 @@ This package provides two production-ready form components that you can drop int
 
 **Web Inquiry Form** - A comprehensive multi-step form perfect for agencies, freelancers, or businesses collecting detailed client information. Features 5 steps covering personal info, business details, address, service selection, and a review page.
 
-**Minimalist Contact Form** - A simple, elegant 3-field contact form (name, email, message) ideal for portfolios, landing pages, or anywhere you need a quick contact option.
+**Minimalist Contact Form** - A clean contact form with first name, last name, email, phone (optional), and message fields. Perfect for portfolios, landing pages, or anywhere you need a quick contact option.
 
 ### Why Use These Forms?
 
 - **Drop-in Ready** - Add one line of code and you have a working, styled form
-- **Zero Dependencies** - No jQuery, no framework requirements, just pure JavaScript
+- **Zero Dependencies** - No framework requirements, just pure JavaScript
 - **Fully Customizable** - Every color, font, and style can be customized via HTML attributes
+- **Accessibility First** - Complete ARIA labels, screen reader support, and keyboard navigation
 - **Dark Mode Built-in** - Automatic detection with customizable dark theme colors
 - **Mobile Responsive** - Works perfectly on phones, tablets, and desktops
-- **Production Tested** - Used in real projects by DevLeads and portfolio sites
+- **Production Tested** - Used in real projects by [DevLeads](https://github.com/devmansam777/devleads) and portfolio sites
 
 ## Installation
 
@@ -263,10 +264,11 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 
 ### Features
 
-- Simple 3-field form (name, email, message)
-- Clean, minimal design
-- Instant validation
-- Success/error toast notifications
+- Clean 5-field form (first name, last name, email, phone, message)
+- Phone field is optional with automatic formatting
+- Minimal, elegant design
+- Real-time field validation
+- Success/error message notifications
 - Smooth animations
 
 ### Customization Attributes
@@ -340,18 +342,98 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 
 ### Form Data Structure
 
+The contact form sends the following data structure to your endpoint:
+
 ```javascript
 {
-  name: "...",
+  firstName: "...",
+  lastName: "...",
   email: "...",
-  message: "..."
+  phone: "..." // or "000-000-0000" if not provided,
+  message: "...",
+  // Additional fields for DevLeads integration:
+  businessName: "First Last",
+  businessPhone: "",
+  businessPhoneExt: "",
+  businessEmail: "",
+  businessServices: "",
+  phoneExt: "",
+  textNumber: "",
+  preferredContact: "email",
+  serviceDesired: "Web Development",
+  hasWebsite: "no",
+  websiteAddress: "",
+  billingStreet: "N/A",
+  billingAptUnit: "",
+  billingCity: "N/A",
+  billingState: "N/A",
+  billingZipCode: "00000",
+  billingCountry: "USA",
+  billingAddress: {
+    street: "N/A",
+    aptUnit: "",
+    city: "N/A",
+    state: "N/A",
+    zipCode: "00000",
+    country: "USA"
+  },
+  isFormSubmission: true
 }
 ```
+
+**Note:** The contact form includes additional fields for [DevLeads](https://github.com/devmansam777/devleads) integration. The main fields you'll use are `firstName`, `lastName`, `email`, `phone`, and `message`.
 
 ### Screenshots
 
 ![Light Mode](assets/light.png)
 ![Dark Mode](assets/dark.png)
+
+---
+
+## Accessibility
+
+Both forms are built with comprehensive accessibility (a11y) features to ensure they work for all users, including those using screen readers and assistive technologies.
+
+### ARIA Labels & Attributes
+
+- **Form Structure**: All forms include proper `role` and `aria-labelledby` attributes
+- **Input Labels**: Every input has associated labels with unique `id` attributes
+- **Required Fields**: Fields marked with `aria-required="true"` for screen readers
+- **Error States**: Invalid fields are marked with `aria-invalid="true"`
+- **Error Messages**: Error messages use `role="alert"` and `aria-live="assertive"` for immediate screen reader announcement
+- **Live Regions**: Success/error notifications use `aria-live` regions for dynamic updates
+
+### Multi-Step Form Accessibility (Web Inquiry Form)
+
+- **Progress Indicator**: Progress bar includes `role="progressbar"` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`
+- **Step Navigation**: Current step marked with `aria-current="step"`
+- **Fieldsets**: Each step is properly grouped with `role="group"` and `aria-labelledby`
+- **Radio Groups**: Radio button groups include `role="radiogroup"` with proper labeling
+- **Conditional Fields**: Hidden fields use `aria-hidden="true"` to prevent confusion
+- **Review Section**: Summary area uses `role="region"` with `aria-live="polite"` for dynamic content
+
+### Keyboard Navigation
+
+- Full keyboard support for all interactive elements
+- Tab navigation through all form fields
+- Enter key submits forms appropriately
+- Multi-step form advances with Enter on valid steps
+
+### Screen Reader Support
+
+- Meaningful labels for all inputs and buttons
+- Error messages announced immediately when validation fails
+- Success messages announced when forms submit successfully
+- Progress updates announced as users navigate through multi-step form
+- Conditional field visibility properly communicated
+
+### Testing
+
+These forms have been tested for accessibility with:
+- NVDA (Windows)
+- VoiceOver (macOS/iOS)
+- JAWS (Windows)
+- Keyboard-only navigation
 
 ---
 
@@ -395,7 +477,19 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.15 (Latest)
+### v1.0.16 (Latest)
+- Added comprehensive ARIA labels and accessibility attributes to both forms
+- All form inputs now include `aria-required`, `aria-invalid`, and `aria-describedby` attributes
+- Error messages use `role="alert"` with `aria-live` regions for screen reader announcements
+- Progress bar in web inquiry form includes proper `role="progressbar"` with aria attributes
+- Radio groups have `role="radiogroup"` with proper labeling
+- Conditional fields toggle `aria-hidden` appropriately
+- Form navigation marked with `aria-current="step"` for multi-step form
+- Added dark mode styles for ARIA alert elements
+- Improved screen reader support and keyboard navigation
+- Forms now meet WCAG 2.1 AA accessibility standards
+
+### v1.0.15
 - Web inquiry form: Updated `:host` `max-width` from 632px to 600px (both forms now 600px visual width)
 
 ### v1.0.14
