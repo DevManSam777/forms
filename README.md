@@ -396,7 +396,7 @@ Compatible with: Chrome, Firefox, Safari, Edge
 ## Changelog
 
 ### v1.0.15 (Latest)
-- Web inquiry form: Updated `:host` `max-width` from 632px to 60px (both forms now 600px visual width)
+- Web inquiry form: Updated `:host` `max-width` from 632px to 600px (both forms now 600px visual width)
 
 ### v1.0.14
 - Increased form widths for better readability on larger screens
