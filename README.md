@@ -478,6 +478,9 @@ Compatible with: Chrome, Firefox, Safari, Edge
 ## Changelog
 
 ### v1.0.16 (Latest)
+- Reduced input and text-area padding
+
+### v1.0.16 
 - Added comprehensive ARIA labels and accessibility attributes to both forms
 - All form inputs now include `aria-required`, `aria-invalid`, and `aria-describedby` attributes
 - Error messages use `role="alert"` with `aria-live` regions for screen reader announcements
