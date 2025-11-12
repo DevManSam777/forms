@@ -45,6 +45,10 @@ class WebInquiryForm extends HTMLElement {
       "dark-button-text-color",
       "heading-color",
       "dark-heading-color",
+      "back-button-color",
+      "back-button-text-color",
+      "dark-back-button-color",
+      "dark-back-button-text-color",
     ];
   }
 
@@ -253,6 +257,10 @@ class WebInquiryForm extends HTMLElement {
     const buttonColor = this.getAttribute("button-color") || primaryColor;
     const buttonTextColor = this.getAttribute("button-text-color") || "#ffffff";
 
+    // Back button colors
+    const backButtonColor = this.getAttribute("back-button-color") || primaryColor;
+    const backButtonTextColor = this.getAttribute("back-button-text-color") || buttonTextColor;
+
     // Heading colors
     const headingColor = this.getAttribute("heading-color") || textColor;
 
@@ -282,6 +290,10 @@ class WebInquiryForm extends HTMLElement {
     // Dark mode button colors
     const darkButtonColor = this.getAttribute("dark-button-color") || darkPrimaryColor;
     const darkButtonTextColor = this.getAttribute("dark-button-text-color") || "#ffffff";
+
+    // Dark mode back button colors
+    const darkBackButtonColor = this.getAttribute("dark-back-button-color") || darkPrimaryColor;
+    const darkBackButtonTextColor = this.getAttribute("dark-back-button-text-color") || darkButtonTextColor;
 
     // Dark mode heading colors
     const darkHeadingColor = this.getAttribute("dark-heading-color") || darkTextColor;
@@ -596,12 +608,12 @@ class WebInquiryForm extends HTMLElement {
       }
 
       .btn-secondary {
-        background-color: #6c757d;
-        color: ${buttonTextColor};
+        background-color: ${backButtonColor};
+        color: ${backButtonTextColor};
       }
 
       .btn-secondary:hover:not(:disabled) {
-        background-color: #5a6268;
+        opacity: 0.9;
       }
 
       .btn-primary {
@@ -864,7 +876,8 @@ class WebInquiryForm extends HTMLElement {
       }
 
       .dark-mode .btn-secondary {
-        color: ${darkButtonTextColor};
+        background-color: ${darkBackButtonColor};
+        color: ${darkBackButtonTextColor};
       }
 
       .dark-mode .review-section {

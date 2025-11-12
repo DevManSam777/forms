@@ -451,7 +451,6 @@ class ContactForm extends HTMLElement {
       ${this.shadowRoot.querySelector('style').outerHTML}
       <form class="contact-form" role="form" aria-label="Contact form${heading ? '' : ''}" ${heading ? 'aria-labelledby="form-heading"' : ''}>
         ${headingHtml}
-        <div id="message-container" role="status" aria-live="polite" aria-atomic="true"></div>
         <div class="name-row">
           <div class="form-group">
             <label for="firstName" id="firstName-label">First Name</label>
@@ -517,6 +516,7 @@ class ContactForm extends HTMLElement {
             aria-describedby="message-error"></textarea>
           <div id="message-error" role="alert" aria-live="assertive"></div>
         </div>
+        <div id="message-container" role="status" aria-live="polite" aria-atomic="true"></div>
         <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
       </form>
     `;

@@ -145,6 +145,8 @@ A comprehensive multi-step form for collecting detailed client information inclu
 | `border-color` | Border color | `#aaaaaa` |
 | `button-color` | Button background | Same as primary-color |
 | `button-text-color` | Button text color | `#ffffff` |
+| `back-button-color` | Back button background | Same as primary-color |
+| `back-button-text-color` | Back button text color | Same as button-text-color |
 | `heading-color` | Heading text color | Same as text-color |
 | `input-background-color` | Input field background | Same as background-color |
 | `input-text-color` | Input text color | Same as text-color |
@@ -164,6 +166,8 @@ A comprehensive multi-step form for collecting detailed client information inclu
 | `dark-border-color` | Border color for dark mode | `#495057` |
 | `dark-button-color` | Button background for dark mode | Same as dark-primary-color |
 | `dark-button-text-color` | Button text for dark mode | `#ffffff` |
+| `dark-back-button-color` | Back button background for dark mode | Same as dark-primary-color |
+| `dark-back-button-text-color` | Back button text for dark mode | Same as dark-button-text-color |
 | `dark-heading-color` | Heading text for dark mode | Same as dark-text-color |
 | `dark-input-background-color` | Input background for dark mode | Same as dark-background-color |
 | `dark-input-text-color` | Input text for dark mode | Same as dark-text-color |
@@ -477,7 +481,14 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.19 (Latest)
+### v1.0.20 (Latest)
+- Web inquiry form: Added customizable back button colors
+- New attributes: `back-button-color`, `back-button-text-color`, `dark-back-button-color`, `dark-back-button-text-color`
+- Back button now matches primary color by default instead of gray
+- Back button text color matches main button text color by default
+- Contact form: Moved success/error message to appear between textarea and submit button for better visibility on mobile devices
+
+### v1.0.19
 - Added Google Fonts additional font-weight imports
 
 ### v1.0.18
