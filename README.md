@@ -477,8 +477,13 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.17, v1.0.18 (Latest)
+### v1.0.19 (Latest)
+- Added Google Fonts additional font-weight imports
+
+### v1.0.18
 - Increase default font-weight on minimalist form
+
+### v1.0.17
 - Reduced input and text-area padding mon minimalist form
 
 ### v1.0.16 
