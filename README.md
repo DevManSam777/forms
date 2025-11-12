@@ -477,8 +477,9 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.16 (Latest)
-- Reduced input and text-area padding
+### v1.0.17, v1.0.18 (Latest)
+- Increase default font-weight on minimalist form
+- Reduced input and text-area padding mon minimalist form
 
 ### v1.0.16 
 - Added comprehensive ARIA labels and accessibility attributes to both forms

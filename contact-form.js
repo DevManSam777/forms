@@ -232,7 +232,7 @@ class ContactForm extends HTMLElement {
       label {
         display: block;
         margin-bottom: 0.5rem;
-        font-weight: 500;
+        font-weight: 600;
         color: ${textColor};
         font-family: ${fontFamily};
         letter-spacing: 0.75px;
