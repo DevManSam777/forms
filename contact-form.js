@@ -80,7 +80,7 @@ class ContactForm extends HTMLElement {
 
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = `https://fonts.googleapis.com/css2?family=${googleFont.replace(/\s+/g, '+')}:wght@400;500;600&display=swap`;
+      link.href = `https://fonts.googleapis.com/css2?family=${googleFont.replace(/\s+/g, '+')}:wght@400;500;600;700&display=swap`;
 
       link.onload = () => {
         this.googleFontLoaded = true;
