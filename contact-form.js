@@ -12,7 +12,8 @@ class ContactForm extends HTMLElement {
       'error-message', 'input-background-color', 'input-text-color', 'input-border-color',
       'heading', 'dark-primary-color', 'dark-background-color', 'dark-text-color', 'dark-border-color',
       'dark-input-background-color', 'dark-input-text-color', 'dark-input-border-color',
-      'button-text-color', 'dark-button-text-color'
+      'button-text-color', 'dark-button-text-color', 'heading-color', 'dark-heading-color',
+      'asterisk-color', 'dark-asterisk-color'
     ];
   }
 
@@ -184,6 +185,8 @@ class ContactForm extends HTMLElement {
     const inputTextColor = this.getAttribute('input-text-color') || textColor;
     const inputBorderColor = this.getAttribute('input-border-color') || borderColor;
     const buttonTextColor = this.getAttribute('button-text-color') || '#ffffff';
+    const headingColor = this.getAttribute('heading-color') || textColor;
+    const asteriskColor = this.getAttribute('asterisk-color') || '#ef4444';
 
     const darkPrimaryColor = this.getAttribute('dark-primary-color') || '#60a5fa';
     const darkBackgroundColor = this.getAttribute('dark-background-color') || '#1f2937';
@@ -193,6 +196,8 @@ class ContactForm extends HTMLElement {
     const darkInputTextColor = this.getAttribute('dark-input-text-color') || darkTextColor;
     const darkInputBorderColor = this.getAttribute('dark-input-border-color') || darkBorderColor;
     const darkButtonTextColor = this.getAttribute('dark-button-text-color') || '#ffffff';
+    const darkHeadingColor = this.getAttribute('dark-heading-color') || darkTextColor;
+    const darkAsteriskColor = this.getAttribute('dark-asterisk-color') || '#f87171';
 
     return `
       :host {
@@ -219,7 +224,7 @@ class ContactForm extends HTMLElement {
         padding: 0;
         font-size: 1.5em;
         font-weight: bold;
-        color: ${textColor};
+        color: ${headingColor};
         font-family: ${fontFamily};
         text-align: center;
         letter-spacing: 1px;
@@ -236,6 +241,12 @@ class ContactForm extends HTMLElement {
         color: ${textColor};
         font-family: ${fontFamily};
         letter-spacing: 0.75px;
+      }
+
+      .required::after {
+        content: " *";
+        color: ${asteriskColor};
+        font-weight: bold;
       }
 
       input, textarea {
@@ -358,7 +369,11 @@ class ContactForm extends HTMLElement {
       }
 
       .dark-mode .form-heading {
-        color: ${darkTextColor};
+        color: ${darkHeadingColor};
+      }
+
+      .dark-mode .required::after {
+        color: ${darkAsteriskColor};
       }
 
       .dark-mode input,
@@ -453,7 +468,7 @@ class ContactForm extends HTMLElement {
         ${headingHtml}
         <div class="name-row">
           <div class="form-group">
-            <label for="firstName" id="firstName-label">First Name</label>
+            <label for="firstName" id="firstName-label" class="required">First Name</label>
             <input
               type="text"
               id="firstName"
@@ -466,7 +481,7 @@ class ContactForm extends HTMLElement {
             <div id="firstName-error" role="alert" aria-live="assertive"></div>
           </div>
           <div class="form-group">
-            <label for="lastName" id="lastName-label">Last Name</label>
+            <label for="lastName" id="lastName-label" class="required">Last Name</label>
             <input
               type="text"
               id="lastName"
@@ -480,7 +495,7 @@ class ContactForm extends HTMLElement {
           </div>
         </div>
         <div class="form-group">
-          <label for="email" id="email-label">Email</label>
+          <label for="email" id="email-label" class="required">Email</label>
           <input
             type="email"
             id="email"
@@ -505,7 +520,7 @@ class ContactForm extends HTMLElement {
           <div id="phone-error" role="alert" aria-live="assertive"></div>
         </div>
         <div class="form-group">
-          <label for="message" id="message-label">Message</label>
+          <label for="message" id="message-label" class="required">Message</label>
           <textarea
             id="message"
             name="message"

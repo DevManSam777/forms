@@ -155,6 +155,7 @@ A comprehensive multi-step form for collecting detailed client information inclu
 | `success-color` | Success message color | `#4caf50` |
 | `error-color` | Error message color | `#d32f2f` |
 | `progress-color` | Progress bar color | Same as primary-color |
+| `asterisk-color` | Required field asterisk color | `#ef4444` (red) |
 
 #### Dark Mode Colors
 
@@ -176,6 +177,7 @@ A comprehensive multi-step form for collecting detailed client information inclu
 | `dark-success-color` | Success color for dark mode | `#4ade80` |
 | `dark-error-color` | Error color for dark mode | `#f87171` |
 | `dark-progress-color` | Progress color for dark mode | Same as dark-primary-color |
+| `dark-asterisk-color` | Required field asterisk color for dark mode | `#f87171` (lighter red) |
 
 ### Example: Custom Theme
 
@@ -301,6 +303,8 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 | `input-text-color` | Input field text color | Same as text-color |
 | `input-border-color` | Input field border color | Same as border-color |
 | `button-text-color` | Button text color | `#ffffff` |
+| `heading-color` | Form heading text color | Same as text-color |
+| `asterisk-color` | Required field asterisk color | `#ef4444` (red) |
 | `success-message` | Custom success message | "Message sent successfully!" |
 | `error-message` | Custom error message | "Failed to send message. Please try again." |
 
@@ -316,6 +320,8 @@ A simple, clean contact form for basic inquiries with name, email, and message f
 | `dark-input-text-color` | Input text color for dark mode | Same as dark-text-color |
 | `dark-input-border-color` | Input border color for dark mode | Same as dark-border-color |
 | `dark-button-text-color` | Button text color for dark mode | `#ffffff` |
+| `dark-heading-color` | Heading text color for dark mode | Same as dark-text-color |
+| `dark-asterisk-color` | Required field asterisk color for dark mode | `#f87171` (lighter red) |
 
 ### Example: Custom Theme
 
@@ -481,7 +487,14 @@ Compatible with: Chrome, Firefox, Safari, Edge
 
 ## Changelog
 
-### v1.0.20 (Latest)
+### v1.0.21 (Latest)
+- **Contact Form**: Added red asterisks to required field labels (First Name, Last Name, Email, Message)
+- **Contact Form**: Added `heading-color` and `dark-heading-color` attributes for independent heading text color control
+- **Both Forms**: Added `asterisk-color` and `dark-asterisk-color` attributes to customize required field asterisk color
+- Default asterisk color: `#ef4444` (red) for light mode, `#f87171` (lighter red) for dark mode
+- Asterisk colors can now be customized independently to match your theme
+
+### v1.0.20
 - Web inquiry form: Added customizable back button colors
 - New attributes: `back-button-color`, `back-button-text-color`, `dark-back-button-color`, `dark-back-button-text-color`
 - Back button now matches primary color by default instead of gray

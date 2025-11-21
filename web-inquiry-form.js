@@ -49,6 +49,8 @@ class WebInquiryForm extends HTMLElement {
       "back-button-text-color",
       "dark-back-button-color",
       "dark-back-button-text-color",
+      "asterisk-color",
+      "dark-asterisk-color",
     ];
   }
 
@@ -264,6 +266,9 @@ class WebInquiryForm extends HTMLElement {
     // Heading colors
     const headingColor = this.getAttribute("heading-color") || textColor;
 
+    // Asterisk colors
+    const asteriskColor = this.getAttribute("asterisk-color") || "#ef4444";
+
     // Dark mode variants
     const darkPrimaryColor =
       this.getAttribute("dark-primary-color") || "#60a5fa";
@@ -297,6 +302,9 @@ class WebInquiryForm extends HTMLElement {
 
     // Dark mode heading colors
     const darkHeadingColor = this.getAttribute("dark-heading-color") || darkTextColor;
+
+    // Dark mode asterisk color
+    const darkAsteriskColor = this.getAttribute("dark-asterisk-color") || "#f87171";
 
     return `
       :host {
@@ -507,8 +515,9 @@ class WebInquiryForm extends HTMLElement {
 
       .required::after {
         content: "*";
-        color: #e74c3c;
+        color: ${asteriskColor};
         margin-left: 3px;
+        font-weight: bold;
       }
 
       .radio-group {
@@ -864,6 +873,10 @@ class WebInquiryForm extends HTMLElement {
 
       .dark-mode .checkbox-wrapper label {
         color: ${darkTextColor};
+      }
+
+      .dark-mode .required::after {
+        color: ${darkAsteriskColor};
       }
 
       .dark-mode .navigation {
